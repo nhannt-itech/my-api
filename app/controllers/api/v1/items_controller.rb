@@ -6,6 +6,11 @@ class Api::V1::ItemsController < ApplicationController
     render json:items, status: 200
   end
 
+  def test
+    items = Item.all
+    render json:items, status: 200
+  end 
+
   def create
     @item = Item.new item_params
 
@@ -52,7 +57,7 @@ class Api::V1::ItemsController < ApplicationController
   private 
 
   def item_params
-    params.permit :title, :price, :shippingCost, :bids
+    params.permit :title, :price, :shippingCost, :bids, :endDate, :image
   end
 
   def load_item
