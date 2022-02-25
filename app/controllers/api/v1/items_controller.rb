@@ -57,7 +57,7 @@ class Api::V1::ItemsController < ApplicationController
   private 
 
   def item_params
-    params.permit :title, :price, :shippingCost, :bids, :endDate, :image
+    params.permit :title, :price, :shipping_cost, :bids, :end_at, :image
   end
 
   def load_item
