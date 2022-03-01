@@ -58,4 +58,5 @@ gem 'rubocop', require: false
 
 gem 'rack-cors'
 
+gem 'devise'
 
