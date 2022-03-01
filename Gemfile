@@ -56,5 +56,6 @@ end
 
 gem 'rubocop', require: false
 
+gem 'rack-cors'
 
 

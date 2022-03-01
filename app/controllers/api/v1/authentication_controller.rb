@@ -5,9 +5,9 @@ class Api::V1::AuthenticationController < ApplicationController
 		command = AuthenticateUser.call(params[:email], params[:password])
 
 		if command.success?
-			render json: { auth_token: command.result }
+			render json: { auth_token: command.result, email: params[:email] }
 		else
-			render json: { error: command.errors }, status: :unauthorized
+			render json: { error: command.errors }, status: 400
 		end
 	end
 
@@ -17,7 +17,7 @@ class Api::V1::AuthenticationController < ApplicationController
 		userFindByEmail = User.find_by_email(@user.email)
 
 		if userFindByEmail
-			render json: { status: false, data: [email: 'email is already created!'] }, status: 400
+			render json: { status: false, message: 'email is already created!' }, status: 400
 		else
 			if @user.save
 				render json: { status: true, data: @user }, status: :created

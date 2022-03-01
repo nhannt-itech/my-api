@@ -29,3 +29,5 @@
 /config/master.key
 
 /node_modules
+
+/config/secrets.yml
